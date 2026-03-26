@@ -7,479 +7,96 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --bg: #0d0d0b;
-    --bg2: #141410;
-    --bg3: #1a1a15;
-    --border: rgba(255,255,255,0.07);
-    --border2: rgba(255,255,255,0.12);
-    --text: #e8e4d9;
-    --muted: #7a7568;
-    --muted2: #9e9888;
-    --gold: #b8860b;
-    --gold-light: #d4a017;
-    --gold-bg: rgba(184,134,11,0.08);
-    --gold-border: rgba(184,134,11,0.25);
-    --green: #5a9e6f;
-    --green-bg: rgba(90,158,111,0.1);
-    --green-border: rgba(90,158,111,0.3);
-    --radius: 6px;
-    --radius-lg: 10px;
+    --bg: #0d0d0b; --bg2: #141410; --bg3: #1a1a15;
+    --border: rgba(255,255,255,0.07); --border2: rgba(255,255,255,0.12);
+    --text: #e8e4d9; --muted: #7a7568; --muted2: #9e9888;
+    --gold: #b8860b; --gold-light: #d4a017;
+    --gold-bg: rgba(184,134,11,0.08); --gold-border: rgba(184,134,11,0.25);
+    --green: #5a9e6f; --green-bg: rgba(90,158,111,0.1); --green-border: rgba(90,158,111,0.3);
+    --radius: 6px; --radius-lg: 10px;
   }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* NAV */
-  nav {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(13,13,11,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 0.5px solid var(--border);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 56px;
-  }
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--gold);
-    letter-spacing: 0.02em;
-    text-decoration: none;
-  }
-  .nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-  }
-  .nav-links a {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted2);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 100; background: rgba(13,13,11,0.92); backdrop-filter: blur(12px); border-bottom: 0.5px solid var(--border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--gold); letter-spacing: 0.02em; text-decoration: none; }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
-  .nav-cta {
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 0.5px solid var(--gold-border);
-    padding: 7px 16px;
-    border-radius: var(--radius);
-    text-decoration: none;
-    transition: background 0.2s, color 0.2s;
-  }
+  .nav-cta { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); border: 0.5px solid var(--gold-border); padding: 7px 16px; border-radius: var(--radius); text-decoration: none; transition: background 0.2s, color 0.2s; }
   .nav-cta:hover { background: var(--gold-bg); }
-
-  /* LAYOUT */
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
   section { padding: 5rem 0; }
   section + section { border-top: 0.5px solid var(--border); }
-
-  .sec-label {
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.6rem;
-  }
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 1.2;
-    margin-bottom: 0.4rem;
-  }
-  .sub {
-    font-size: 14px;
-    color: var(--muted2);
-    margin-bottom: 2rem;
-  }
-  hr.divider {
-    border: none;
-    border-top: 0.5px solid var(--border);
-    margin: 3rem 0;
-  }
-
-  /* HERO */
-  #hero {
-    padding: 7rem 0 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-  #hero::before {
-    content: '';
-    position: absolute;
-    top: -200px;
-    right: -200px;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--green);
-    background: var(--green-bg);
-    border: 0.5px solid var(--green-border);
-    padding: 5px 14px;
-    border-radius: 4px;
-    margin-bottom: 1.75rem;
-  }
-  .hero-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--green);
-    animation: pulse 2s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.4; }
-  }
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(48px, 7vw, 78px);
-    font-weight: 500;
-    line-height: 1.08;
-    margin-bottom: 1.5rem;
-    color: var(--text);
-  }
+  .sec-label { font-size: 10px; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+  h2 { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; line-height: 1.2; margin-bottom: 0.4rem; }
+  .sub { font-size: 14px; color: var(--muted2); margin-bottom: 2rem; }
+  #hero { padding: 7rem 0 5rem; position: relative; overflow: hidden; }
+  #hero::before { content: ''; position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%); pointer-events: none; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); background: var(--green-bg); border: 0.5px solid var(--green-border); padding: 5px 14px; border-radius: 4px; margin-bottom: 1.75rem; }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(48px, 7vw, 78px); font-weight: 500; line-height: 1.08; margin-bottom: 1.5rem; color: var(--text); }
   h1 .accent { color: var(--gold); font-style: italic; }
-  .hero-desc {
-    font-size: 16px;
-    color: var(--muted2);
-    max-width: 560px;
-    line-height: 1.75;
-    margin-bottom: 2rem;
-  }
+  .hero-desc { font-size: 16px; color: var(--muted2); max-width: 560px; line-height: 1.75; margin-bottom: 2rem; }
   .hero-desc strong { color: var(--text); font-weight: 500; }
   .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-primary {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: #0d0d0b;
-    border: none;
-    padding: 11px 24px;
-    border-radius: var(--radius);
-    cursor: pointer;
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
+  .btn-primary { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: var(--gold); color: #0d0d0b; border: none; padding: 11px 24px; border-radius: var(--radius); cursor: pointer; text-decoration: none; transition: opacity 0.2s; }
   .btn-primary:hover { opacity: 0.85; }
-  .btn-secondary {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: transparent;
-    color: var(--text);
-    border: 0.5px solid var(--border2);
-    padding: 11px 24px;
-    border-radius: var(--radius);
-    cursor: pointer;
-    text-decoration: none;
-    transition: border-color 0.2s;
-  }
+  .btn-secondary { font-size: 12px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; background: transparent; color: var(--text); border: 0.5px solid var(--border2); padding: 11px 24px; border-radius: var(--radius); cursor: pointer; text-decoration: none; transition: border-color 0.2s; }
   .btn-secondary:hover { border-color: var(--muted2); }
-
-  /* STATS */
-  .stat-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    margin-top: 4rem;
-  }
-  .stat-card {
-    background: var(--bg2);
-    padding: 1.5rem 1.25rem;
-    text-align: center;
-  }
-  .stat-num {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 38px;
-    font-weight: 500;
-    color: var(--gold);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .stat-lbl {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-  }
-
-  /* EXPERTISE CARDS */
-  .cap-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-  .cap-card {
-    background: var(--bg2);
-    padding: 1.5rem;
-    transition: background 0.2s;
-  }
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; margin-top: 4rem; }
+  .stat-card { background: var(--bg2); padding: 1.5rem 1.25rem; text-align: center; }
+  .stat-num { display: block; font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; color: var(--gold); line-height: 1; margin-bottom: 6px; }
+  .stat-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+  .cap-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .cap-card { background: var(--bg2); padding: 1.5rem; transition: background 0.2s; }
   .cap-card:hover { background: var(--bg3); }
-  .cap-card h3 {
-    font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-  .cap-card p {
-    font-size: 13px;
-    color: var(--muted2);
-    line-height: 1.65;
-    margin-bottom: 12px;
-  }
-  .proof {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* TIMELINE */
+  .cap-card h3 { font-size: 14px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+  .cap-card p { font-size: 13px; color: var(--muted2); line-height: 1.65; margin-bottom: 12px; }
+  .proof { font-size: 11px; font-weight: 500; color: var(--gold); font-family: 'DM Mono', monospace; }
   .tl { border-left: 1px solid var(--border2); padding-left: 1.75rem; }
-  .tl-item {
-    position: relative;
-    padding-bottom: 2rem;
-  }
+  .tl-item { position: relative; padding-bottom: 2rem; }
   .tl-item:last-child { padding-bottom: 0; }
-  .tl-item::before {
-    content: '';
-    position: absolute;
-    left: -1.85rem;
-    top: 6px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--bg);
-    border: 1.5px solid var(--border2);
-  }
-  .tl-item.cur::before {
-    border-color: var(--gold);
-    background: var(--gold);
-    box-shadow: 0 0 0 3px rgba(184,134,11,0.15);
-  }
-  .tl-period {
-    font-size: 11px;
-    font-family: 'DM Mono', monospace;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-  .tl-title {
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 2px;
-    color: var(--text);
-  }
-  .tl-co {
-    font-size: 13px;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-  .tl-desc {
-    font-size: 13px;
-    color: var(--muted2);
-    line-height: 1.65;
-    margin-bottom: 10px;
-    max-width: 620px;
-  }
-  .tag {
-    display: inline-block;
-    font-size: 10px;
-    font-weight: 500;
-    padding: 3px 9px;
-    border-radius: 3px;
-    background: var(--bg3);
-    border: 0.5px solid var(--border2);
-    color: var(--muted2);
-    margin: 2px 3px 2px 0;
-  }
-
-  /* WINS */
-  .wins-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-  .win-card {
-    background: var(--bg2);
-    padding: 1.75rem;
-    transition: background 0.2s;
-  }
+  .tl-item::before { content: ''; position: absolute; left: -1.85rem; top: 6px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--border2); }
+  .tl-item.cur::before { border-color: var(--gold); background: var(--gold); box-shadow: 0 0 0 3px rgba(184,134,11,0.15); }
+  .tl-period { font-size: 11px; font-family: 'DM Mono', monospace; color: var(--muted); margin-bottom: 4px; }
+  .tl-title { font-size: 15px; font-weight: 500; margin-bottom: 2px; color: var(--text); }
+  .tl-co { font-size: 13px; color: var(--gold); margin-bottom: 8px; }
+  .tl-desc { font-size: 13px; color: var(--muted2); line-height: 1.65; margin-bottom: 10px; max-width: 620px; }
+  .tag { display: inline-block; font-size: 10px; font-weight: 500; padding: 3px 9px; border-radius: 3px; background: var(--bg3); border: 0.5px solid var(--border2); color: var(--muted2); margin: 2px 3px 2px 0; }
+  .wins-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .win-card { background: var(--bg2); padding: 1.75rem; transition: background 0.2s; }
   .win-card:hover { background: var(--bg3); }
-  .win-card h3 {
-    font-size: 15px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: var(--text);
-  }
-  .win-card p {
-    font-size: 13px;
-    color: var(--muted2);
-    line-height: 1.65;
-    margin-bottom: 12px;
-  }
-  .win-metric {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--gold);
-    font-family: 'DM Mono', monospace;
-  }
-
-  /* TRAVEL */
-  .stamp-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 8px;
-  }
-  .stamp {
-    background: var(--bg2);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius);
-    padding: 0.875rem 0.5rem;
-    text-align: center;
-    transition: border-color 0.2s, background 0.2s;
-  }
+  .win-card h3 { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+  .win-card p { font-size: 13px; color: var(--muted2); line-height: 1.65; margin-bottom: 12px; }
+  .win-metric { font-size: 11px; font-weight: 500; color: var(--gold); font-family: 'DM Mono', monospace; }
+  .stamp-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 8px; }
+  .stamp { background: var(--bg2); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 0.875rem 0.5rem; text-align: center; transition: border-color 0.2s, background 0.2s; }
   .stamp:hover { border-color: var(--gold-border); background: var(--gold-bg); }
   .stamp-flag { font-size: 22px; display: block; margin-bottom: 5px; }
-  .stamp-name {
-    font-size: 9px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.07em;
-  }
-
-  /* CERTS */
-  .cert-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    background: var(--border);
-    border: 0.5px solid var(--border);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-  .cert {
-    background: var(--bg2);
-    padding: 1.25rem;
-  }
-  .cert-name {
-    font-size: 13px;
-    font-weight: 500;
-    margin-bottom: 4px;
-    color: var(--text);
-  }
-  .cert-sub {
-    font-size: 11px;
-    color: var(--muted);
-  }
-
-  /* CONTACT */
-  .contact-bar {
-    background: var(--bg2);
-    border: 0.5px solid var(--border2);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-  .contact-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 4px;
-  }
+  .stamp-name { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; }
+  .cert-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--border); border: 0.5px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
+  .cert { background: var(--bg2); padding: 1.25rem; }
+  .cert-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; color: var(--text); }
+  .cert-sub { font-size: 11px; color: var(--muted); }
+  .contact-bar { background: var(--bg2); border: 0.5px solid var(--border2); border-radius: var(--radius-lg); padding: 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .contact-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 4px; }
   .contact-role { font-size: 13px; color: var(--muted2); }
   .contact-links { display: flex; flex-direction: column; gap: 6px; text-align: right; }
-  .contact-links a {
-    font-size: 13px;
-    color: var(--muted2);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
+  .contact-links a { font-size: 13px; color: var(--muted2); text-decoration: none; transition: color 0.2s; }
   .contact-links a:hover { color: var(--gold); }
-
-  /* FOOTER */
-  footer {
-    border-top: 0.5px solid var(--border);
-    padding: 2rem;
-    text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-  }
-
+  footer { border-top: 0.5px solid var(--border); padding: 2rem; text-align: center; font-size: 12px; color: var(--muted); }
   @media (max-width: 768px) {
-    nav { padding: 0 1rem; }
-    .nav-links { display: none; }
-    .container { padding: 0 1.25rem; }
-    section { padding: 3.5rem 0; }
-    h1 { font-size: 42px; }
-    .stat-grid { grid-template-columns: repeat(2, 1fr); }
-    .cap-grid { grid-template-columns: 1fr; }
-    .wins-grid { grid-template-columns: 1fr; }
-    .stamp-grid { grid-template-columns: repeat(4, 1fr); }
+    nav { padding: 0 1rem; } .nav-links { display: none; } .container { padding: 0 1.25rem; }
+    section { padding: 3.5rem 0; } h1 { font-size: 42px; }
+    .stat-grid { grid-template-columns: repeat(2, 1fr); } .cap-grid { grid-template-columns: 1fr; }
+    .wins-grid { grid-template-columns: 1fr; } .stamp-grid { grid-template-columns: repeat(4, 1fr); }
     .cert-grid { grid-template-columns: repeat(2, 1fr); }
   }
 </style>
 </head>
 <body>
-
 <nav>
   <a href="#hero" class="nav-logo">PA</a>
   <ul class="nav-links">
@@ -491,10 +108,7 @@
   </ul>
   <a href="mailto:premkumarachari4@gmail.com" class="nav-cta">Get in Touch</a>
 </nav>
-
 <div class="container">
-
-  <!-- HERO -->
   <section id="hero">
     <span class="hero-badge">Senior Workplace Experience Manager</span>
     <h1>I build workplaces<br>people <span class="accent">love</span> coming to.</h1>
@@ -503,7 +117,6 @@
       <a href="#wins" class="btn-primary">View Key Wins</a>
       <a href="#experience" class="btn-secondary">See My Journey</a>
     </div>
-
     <div class="stat-grid">
       <div class="stat-card"><span class="stat-num">13+</span><span class="stat-lbl">Years Experience</span></div>
       <div class="stat-card"><span class="stat-num">3,300</span><span class="stat-lbl">Headcount Managed</span></div>
@@ -511,47 +124,19 @@
       <div class="stat-card"><span class="stat-num">22</span><span class="stat-lbl">Countries Visited</span></div>
     </div>
   </section>
-
-  <!-- EXPERTISE -->
   <section id="expertise">
     <div class="sec-label">Expertise</div>
     <h2>What I solve for</h2>
     <p class="sub">Every space I manage becomes a place where people do their best work.</p>
     <div class="cap-grid">
-      <div class="cap-card">
-        <h3>Building Operations &amp; Safety</h3>
-        <p>End-to-end building management — maintenance, compliance, statutory renewals, safety audits. Things work because I track everything.</p>
-        <span class="proof">Licious · Zepto · Pepper · CBRE · JLL</span>
-      </div>
-      <div class="cap-card">
-        <h3>Vendor Management &amp; Contracts</h3>
-        <p>Negotiating multi-vendor ecosystems across housekeeping, security, maintenance, and soft services. SLA-driven, cost-conscious.</p>
-        <span class="proof">5+ vendor workstreams managed</span>
-      </div>
-      <div class="cap-card">
-        <h3>Space Planning &amp; Fit-outs</h3>
-        <p>Built and designed workspace for 3,300+ people at Zepto. Delivered a 162-seat office expansion at Licious with disciplined cost-per-seat.</p>
-        <span class="proof">3,300 folks at Zepto · 162-seat at Licious</span>
-      </div>
-      <div class="cap-card">
-        <h3>Budget &amp; Financial Oversight</h3>
-        <p>Tracking admin budgets, vendor invoices, and operational spend with structured reporting. Cost savings baked in, not bolted on.</p>
-        <span class="proof">40% travel cost reduction at Pepper</span>
-      </div>
-      <div class="cap-card">
-        <h3>Corporate Travel Management</h3>
-        <p>End-to-end corporate travel desk — visas, bookings, reimbursements, and policy. Founder-level logistics handled with full discretion.</p>
-        <span class="proof">Pepper · Zepto · Licious</span>
-      </div>
-      <div class="cap-card">
-        <h3>Workplace Culture &amp; Events</h3>
-        <p>Organising offsites, leadership events, and culture moments. First 230-person company offsite at Pepper Content — solo.</p>
-        <span class="proof">SuperHero Award x 2 quarters</span>
-      </div>
+      <div class="cap-card"><h3>Building Operations &amp; Safety</h3><p>End-to-end building management — maintenance, compliance, statutory renewals, safety audits. Things work because I track everything.</p><span class="proof">Licious · Zepto · Pepper · CBRE · JLL</span></div>
+      <div class="cap-card"><h3>Vendor Management &amp; Contracts</h3><p>Negotiating multi-vendor ecosystems across housekeeping, security, maintenance, and soft services. SLA-driven, cost-conscious.</p><span class="proof">5+ vendor workstreams managed</span></div>
+      <div class="cap-card"><h3>Space Planning &amp; Fit-outs</h3><p>Built and designed workspace for 3,300+ people at Zepto. Delivered a 162-seat office expansion at Licious with disciplined cost-per-seat.</p><span class="proof">3,300 folks at Zepto · 162-seat at Licious</span></div>
+      <div class="cap-card"><h3>Budget &amp; Financial Oversight</h3><p>Tracking admin budgets, vendor invoices, and operational spend with structured reporting. Cost savings baked in, not bolted on.</p><span class="proof">40% travel cost reduction at Pepper</span></div>
+      <div class="cap-card"><h3>Corporate Travel Management</h3><p>End-to-end corporate travel desk — visas, bookings, reimbursements, and policy. Founder-level logistics handled with full discretion.</p><span class="proof">Pepper · Zepto · Licious</span></div>
+      <div class="cap-card"><h3>Workplace Culture &amp; Events</h3><p>Organising offsites, leadership events, and culture moments. First 230-person company offsite at Pepper Content — solo.</p><span class="proof">SuperHero Award x 2 quarters</span></div>
     </div>
   </section>
-
-  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="sec-label">Career</div>
     <h2>The journey</h2>
@@ -601,37 +186,17 @@
       </div>
     </div>
   </section>
-
-  <!-- WINS -->
   <section id="wins">
     <div class="sec-label">Impact</div>
     <h2>Real outcomes. Real numbers.</h2>
     <p class="sub">Projects that moved the needle — not just kept the lights on.</p>
     <div class="wins-grid">
-      <div class="win-card">
-        <h3>Zepto HQ Relocation</h3>
-        <p>Led the full transition of Zepto's HQ from Mumbai to Bengaluru for ~2,500 headcount. Vendor onboarding, operational readiness, and budget oversight — end-to-end.</p>
-        <span class="win-metric">~2,500 headcount · On time · Zero escalations</span>
-      </div>
-      <div class="win-card">
-        <h3>162-Seat Office Expansion at Licious</h3>
-        <p>Delivered a full office expansion from capacity planning through fit-out and handover. Cost-per-seat negotiated to budget, founder-approved.</p>
-        <span class="win-metric">162 seats · Cost-efficient CPS</span>
-      </div>
-      <div class="win-card">
-        <h3>40% Travel Cost Reduction</h3>
-        <p>Redesigned the corporate travel process at Pepper Content — advance booking policies, preferred vendors, reimbursement workflows.</p>
-        <span class="win-metric">40% cost saving · Multi-city scope</span>
-      </div>
-      <div class="win-card">
-        <h3>First Company Offsite — 230 People</h3>
-        <p>Organised Pepper Content's first company-wide offsite for 230 employees, solo. Venue, logistics, accommodation, catering, activities — zero vendor issues.</p>
-        <span class="win-metric">230 people · Solo ownership · SuperHero Award</span>
-      </div>
+      <div class="win-card"><h3>Zepto HQ Relocation</h3><p>Led the full transition of Zepto's HQ from Mumbai to Bengaluru for ~2,500 headcount. Vendor onboarding, operational readiness, and budget oversight — end-to-end.</p><span class="win-metric">~2,500 headcount · On time · Zero escalations</span></div>
+      <div class="win-card"><h3>162-Seat Office Expansion at Licious</h3><p>Delivered a full office expansion from capacity planning through fit-out and handover. Cost-per-seat negotiated to budget, founder-approved.</p><span class="win-metric">162 seats · Cost-efficient CPS</span></div>
+      <div class="win-card"><h3>40% Travel Cost Reduction</h3><p>Redesigned the corporate travel process at Pepper Content — advance booking policies, preferred vendors, reimbursement workflows.</p><span class="win-metric">40% cost saving · Multi-city scope</span></div>
+      <div class="win-card"><h3>First Company Offsite — 230 People</h3><p>Organised Pepper Content's first company-wide offsite for 230 employees, solo. Venue, logistics, accommodation, catering, activities — zero vendor issues.</p><span class="win-metric">230 people · Solo ownership · SuperHero Award</span></div>
     </div>
   </section>
-
-  <!-- TRAVEL -->
   <section id="travel">
     <div class="sec-label">Beyond the office</div>
     <h2>The passport is always filling.</h2>
@@ -644,14 +209,9 @@
       <div class="stamp"><span class="stamp-flag">🇯🇵</span><span class="stamp-name">Japan</span></div>
       <div class="stamp"><span class="stamp-flag">🇰🇷</span><span class="stamp-name">South Korea</span></div>
       <div class="stamp"><span class="stamp-flag">🇦🇪</span><span class="stamp-name">UAE</span></div>
-      <div class="stamp" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;">
-        <span style="font-size:20px;">🌍</span>
-        <span class="stamp-name">&amp; Many More</span>
-      </div>
+      <div class="stamp" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;"><span style="font-size:20px;">🌍</span><span class="stamp-name">&amp; Many More</span></div>
     </div>
   </section>
-
-  <!-- CREDENTIALS -->
   <section id="credentials">
     <div class="sec-label">Credentials</div>
     <h2>Education &amp; certifications</h2>
@@ -663,8 +223,6 @@
       <div class="cert"><div class="cert-name">Fire Fighting &amp; First Aid</div><div class="cert-sub">Safety Certified</div></div>
     </div>
   </section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="contact-bar">
       <div>
@@ -678,12 +236,7 @@
       </div>
     </div>
   </section>
-
 </div>
-
-<footer>
-  © 2025 Premkumar Achari · Built with care
-</footer>
-
+<footer>© 2025 Premkumar Achari · Built with care</footer>
 </body>
 </html>
